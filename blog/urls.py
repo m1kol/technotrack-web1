@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from core.views import  home
+from categories.views import list_categories, category
+from login.views import promt_login
+from signup.views import promt_signup
+from posts.views import list_posts, show_post
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', home),
+    url(r'^categories/$', list_categories),
+    url(r'^categories/(\d+)/', category),
+    url(r'^posts/$', list_posts),
+    url(r'^posts/(\d+)/', show_post),
+    url(r'^login/$', promt_login),
+    url(r'^signup/$',promt_signup),
 ]
